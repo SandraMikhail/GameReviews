@@ -1,6 +1,81 @@
 body{
-    background-image: linear-gradient(rgba(12, 12, 12, 0.856)),url(./wraper.png) ;
+    background-image: linear-gradient(rgba(12, 12, 12, 0.692)),url(./wraper.png) ;
     background-size: cover ;
     background-repeat: no-repeat;
   height: 100vh;
+}
+.navbar{
+  background-color: #3A497B;
+}
+a, li, ul{
+  text-decoration: none;
+  color: white;
+}
+.card{
+  background-color: #272b30;
+}
+.btn-color{
+  background-color: #272729;
+}
+
+.desc{
+  color: #949598;
+}
+
+.badge-det{
+  background-color: #3A497B !important;
+}
+
+
+.layer{
+  background-color: black;
+  opacity: 0.5;
+  z-index: 99;
+  transition: all 1s;
+}
+.layer:hover img{
+  transform: scaleX(1.5);
+   
+ 
+}
+h4{
+
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:500;
+  font-size: 14px;
+  line-height: 17px;
+  color:rgb(255,255,255);
+  font-style: normal;
+
+}
+p{
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+
+.badge-font{
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-size: 11px;
+  line-height: 11px;
+  font-style: normal;
+}
+.navbar img{
+  width: 10%;
+}
+.w-10{
+  width: 30%;
+  height: 100%;
+}
+
+.gameCard:hover .layer{
+  transform: scale(1.2);
+  opacity: 1;
+
 }
