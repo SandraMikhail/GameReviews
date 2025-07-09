@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(rgba(12, 12, 12, 0.692)),url(./wraper.png) ;
+    background-image: linear-gradient(rgba(12, 12, 12, 0.199)),url(./wraper.png) ;
     background-size: cover ;
     background-repeat: no-repeat;
   height: 100vh;
@@ -73,9 +73,16 @@ p{
   width: 30%;
   height: 100%;
 }
+.gameCard{
+  margin: 5px;
+  transition: all 1s;
+}
 
+.gameCard:hover{
+  transform: scale(1.1);
+
+
+}
 .gameCard:hover .layer{
-  transform: scale(1.2);
   opacity: 1;
-
 }

@@ -1,3 +1,4 @@
+
 var gameData = document.getElementById("gameData");
 
 async function getGames(q = "shooter") {
@@ -37,14 +38,12 @@ async function getDetails(id) {
 }
 
 
-var x = document.querySelectorAll('a')
+const x = document.querySelectorAll('a')
+console.log(x[2].id)
 console.log(x)
-x.addEventListener('click', function(){
-    for (var i =0;i <x.length ;i++){
-        console.log("hello", i)
-  
-    }
-})
+
+
+
 
 
 /*api return details */
@@ -76,10 +75,35 @@ function displayGame() {
 displayGame();
 
 
-
+/*
 const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
 
 myModal.addEventListener('shown.bs.modal', () => {
   myInput.focus()
 })
+*/
+
+
+
+ const modalbody = document.querySelector('.modal-body')
+modalbody.innerHTML = ` 
+        <div class="container">
+          <div class="row text-white">
+          <div class="col-md-4">
+            <img src="" alt="test">
+          </div>
+          <div class="col-md-8">
+            <h2>title</h2>
+            <h3>category</h3>
+            <h3>platform</h3>
+            <h3>status</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore animi cupiditate dicta eum nulla, autem aliquam sequi ut natus maiores modi vel incidunt nesciunt repellendus ab hic ipsa vero! Ipsum a, eius ad minus cumque assumenda ducimus. Inventore asperiores fugit exercitationem, nesciunt a atque hic sint consectetur, debitis excepturi ipsum?</p>
+            <button>Show Game</button>
+          </div>
+        </div>
+        </div>
+`
+
+const exampleModalLabel = document.getElementById("exampleModalLabel")
+exampleModalLabel.innerHTML ="hamadaa"
