@@ -38,7 +38,6 @@ async function getDetails(id) {
     let response = await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`, options);
     let data = await response.json();
     gameDetail = data
-    console.log("all game details", gameDetail)
     const modal = new bootstrap.Modal(document.getElementById('fullscreenModal'));
 modal.show();
 showGameDetailsModal(gameDetail)
@@ -52,9 +51,6 @@ showGameDetailsModal(gameDetail)
 const x = document.querySelectorAll('a')
 console.log(x[2].id)
 console.log(x)
-
-
-
 
 
 /*api return details */
@@ -91,11 +87,6 @@ displayGame();
 
 
 const modalbody = document.querySelector('.modal-body')
-const detailsModal = document.getElementById('detailsModal')
-
-detailsModal.addEventListener('click', function(){
-  showGameDetailsModal()
-})
 
 function showGameDetailsModal(gameDetail){
   console.log("ana el gamedetail", gameDetail)
@@ -111,13 +102,15 @@ function showGameDetailsModal(gameDetail){
             <h3>Platform:<span class ="badge bg-info text-dark m-1"> ${gameDetail.platform}</span></h3>
             <h3>Status: <span class ="badge bg-info text-dark m-1 ">${gameDetail.status}</span></h3>
             <p>${gameDetail.description}</p>
-            <button class="btn border border-warning text-white">Show Game</button>
+            <a href="${gameDetail.game_url}" target="_blank" class="btn border border-warning text-white">Show Game</a>
           </div>
         </div>
         </div>
 `
 }
 
+/*
 const exampleModalLabel = document.getElementById("exampleModalLabel")
 exampleModalLabel.innerHTML ="hamadaa"
 
+*/

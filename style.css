@@ -1,11 +1,16 @@
 body{
-    background-image: linear-gradient(rgba(12, 12, 12, 0.199)),url(./wraper.png) ;
+    background-image: linear-gradient(rgba(189, 172, 172, 0.103)),url(./wraper.png) ;
     background-size: cover ;
     background-repeat: no-repeat;
-  height: 100vh;
+    height: 400px;
 }
 .navbar{
-  background-color: #3A497B;
+  background-color: #3A497B !important;
+  border: 1px solid transparent;
+  border-radius: 20px;
+}
+.navbar a{
+  color: white;
 }
 a, li, ul{
   text-decoration: none;
@@ -108,4 +113,10 @@ p{
   font-size: 14px;
   font-weight: 400;
     font-family: "Comfortaa", sans-serif;
+}
+#details button:hover{
+  background-color: #ffc107 ;
+}
+.modal-header{
+  border-bottom: none;
 }
