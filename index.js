@@ -1,14 +1,18 @@
 
 var gameData = document.getElementById("gameData");
 
-async function getGames(q = "shooter") {
-  const options = {
+ const options = {
     method: "GET",
     headers: {
       "x-rapidapi-key": "4b1b48a512msh06a9207d828f71cp19661ajsn1b59bf98440f",
       "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
     },
   };
+
+let gameDetail ;
+
+async function getGames(q = "shooter") {
+ 
 
   try {
     let response = await fetch(
@@ -26,12 +30,15 @@ async function getGames(q = "shooter") {
 
 getGames("mmorpg");
 
+//get gameDetail
+
 async function getDetails(id) {
   console.log("id of the game is ", id);
   try {
-    let response = await fetch("", options);
+    let response = await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`, options);
     let data = await response.json();
-    console.log(data);
+    gameDetail = data
+    console.log("all game details", gameDetail)
   } catch (error) {
     console.log("error in details ", error);
   }
@@ -49,6 +56,7 @@ console.log(x)
 /*api return details */
 
 var games = [];
+
 function displayGame() {
   var box = "";
   for (var i = 0; i < games.length; i++) {
@@ -71,6 +79,7 @@ function displayGame() {
     </div>
         `;
   } gameData.innerHTML = box;
+
 }
 displayGame();
 
@@ -85,8 +94,12 @@ myModal.addEventListener('shown.bs.modal', () => {
 */
 
 
+function displayGameDetails(gameDetail){
+  console.log("tessssssst",gameDetail.title)
+}
 
- const modalbody = document.querySelector('.modal-body')
+
+const modalbody = document.querySelector('.modal-body')
 modalbody.innerHTML = ` 
         <div class="container">
           <div class="row text-white">
@@ -94,7 +107,7 @@ modalbody.innerHTML = `
             <img src="" alt="test">
           </div>
           <div class="col-md-8">
-            <h2>title</h2>
+            <h2></h2>
             <h3>category</h3>
             <h3>platform</h3>
             <h3>status</h3>
@@ -104,6 +117,9 @@ modalbody.innerHTML = `
         </div>
         </div>
 `
-
+modalbody.addEventListener('click', function(){
+  displayGameDetails()
+})
 const exampleModalLabel = document.getElementById("exampleModalLabel")
 exampleModalLabel.innerHTML ="hamadaa"
+
