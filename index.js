@@ -1,4 +1,5 @@
-var gameData = document.getElementById("gameData");
+const gameData = document.getElementById("gameData");
+let clickedValue=""
 
  const options = {
     method: "GET",
@@ -47,10 +48,14 @@ showGameDetailsModal(gameDetail)
   }
 }
 
+const mylist = document.querySelector('ul')
+mylist.addEventListener('click', function(e){
+  e.preventDefault();
 
-const x = document.querySelectorAll('a')
-console.log(x[2].id)
-console.log(x)
+  clickedValue =e.target.innerHTML
+getGames(clickedValue)
+
+})
 
 
 /*api return details */
