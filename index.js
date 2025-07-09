@@ -1,4 +1,3 @@
-
 var gameData = document.getElementById("gameData");
 
  const options = {
@@ -33,12 +32,17 @@ getGames("mmorpg");
 //get gameDetail
 
 async function getDetails(id) {
+
   console.log("id of the game is ", id);
   try {
     let response = await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`, options);
     let data = await response.json();
     gameDetail = data
     console.log("all game details", gameDetail)
+    const modal = new bootstrap.Modal(document.getElementById('fullscreenModal'));
+modal.show();
+showGameDetailsModal(gameDetail)
+    
   } catch (error) {
     console.log("error in details ", error);
   }
@@ -84,42 +88,36 @@ function displayGame() {
 displayGame();
 
 
-/*
-const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
-*/
-
-
-function displayGameDetails(gameDetail){
-  console.log("tessssssst",gameDetail.title)
-}
 
 
 const modalbody = document.querySelector('.modal-body')
-modalbody.innerHTML = ` 
+const detailsModal = document.getElementById('detailsModal')
+
+detailsModal.addEventListener('click', function(){
+  showGameDetailsModal()
+})
+
+function showGameDetailsModal(gameDetail){
+  console.log("ana el gamedetail", gameDetail)
+  modalbody.innerHTML = ` 
         <div class="container">
           <div class="row text-white">
           <div class="col-md-4">
-            <img src="" alt="test">
+            <img src="${gameDetail.thumbnail}" alt="test">
           </div>
-          <div class="col-md-8">
-            <h2></h2>
-            <h3>category</h3>
-            <h3>platform</h3>
-            <h3>status</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore animi cupiditate dicta eum nulla, autem aliquam sequi ut natus maiores modi vel incidunt nesciunt repellendus ab hic ipsa vero! Ipsum a, eius ad minus cumque assumenda ducimus. Inventore asperiores fugit exercitationem, nesciunt a atque hic sint consectetur, debitis excepturi ipsum?</p>
-            <button>Show Game</button>
+          <div class="col-md-8" id="details">
+            <h2>Title: ${gameDetail.title}</h2>
+            <h3>category: <span class ="badge bg-info text-dark m-1"> ${gameDetail.genre}</span></h3>
+            <h3>Platform:<span class ="badge bg-info text-dark m-1"> ${gameDetail.platform}</span></h3>
+            <h3>Status: <span class ="badge bg-info text-dark m-1 ">${gameDetail.status}</span></h3>
+            <p>${gameDetail.description}</p>
+            <button class="btn border border-warning text-white">Show Game</button>
           </div>
         </div>
         </div>
 `
-modalbody.addEventListener('click', function(){
-  displayGameDetails()
-})
+}
+
 const exampleModalLabel = document.getElementById("exampleModalLabel")
 exampleModalLabel.innerHTML ="hamadaa"
 

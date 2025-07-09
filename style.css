@@ -86,3 +86,26 @@ p{
 .gameCard:hover .layer{
   opacity: 1;
 }
+
+#details span{
+  font-size: 12px;
+  font-weight: 700;
+}
+#details h2{
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 500;
+  
+}
+#details h3{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  
+}
+#details p{
+  line-height: 21px;
+  font-size: 14px;
+  font-weight: 400;
+    font-family: "Comfortaa", sans-serif;
+}
